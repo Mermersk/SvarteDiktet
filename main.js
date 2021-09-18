@@ -46,10 +46,14 @@ Promise.all([vertexShaderPromise, fragmentShaderPromise]).then((shadersText) => 
     const svartediktetTex = twgl.createTexture(gl, {src: "./SvarteDiktet.jpg", flipY: true})
 
     const owlHoot = new Audio("./owl.wav")
-    owlHoot.play()
-    setInterval( () => {
+
+    document.getElementById("c").addEventListener("mouseover", () => {
         owlHoot.play()
-    }, 10000)
+        setInterval( () => {
+            owlHoot.play()
+        }, 10000)
+    }, {once: true})
+    
 
     const uniforms = {
         u_svarteDiktet: svartediktetTex,
