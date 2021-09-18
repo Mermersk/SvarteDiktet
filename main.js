@@ -47,12 +47,20 @@ Promise.all([vertexShaderPromise, fragmentShaderPromise]).then((shadersText) => 
 
     const owlHoot = new Audio("./owl.wav")
 
-    document.getElementById("c").addEventListener("mouseover", () => {
+    document.getElementById("audioAccept").addEventListener("click", () => {
         owlHoot.play()
         setInterval( () => {
             owlHoot.play()
-        }, 10000)
+        }, 12000)
+        document.getElementById("audioAccept").style.display = "none"
     }, {once: true})
+
+    document.getElementById("audioAccept").addEventListener("mouseover", () => {
+        document.getElementById("audioAccept").style.backgroundColor = "#d4a62a"
+    })
+    document.getElementById("audioAccept").addEventListener("mouseleave", () => {
+        document.getElementById("audioAccept").style.backgroundColor = "#d4a62a"
+    })
     
 
     const uniforms = {
